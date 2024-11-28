@@ -32,6 +32,7 @@ def main():
     playerx = SCREEN_WIDTH / 2
     playery = SCREEN_HEIGHT / 2
     player = Player(playerx, playery)
+    shot = Shot(player.position.x, player.position.y, PLAYER_SHOOT_SPEED)
     asteroids_init = AsteroidField()
 
     while True: # Initiate infinite game loop
@@ -47,6 +48,11 @@ def main():
                 print("Game over!")
                 pygame.quit()
                 sys.exit()
+
+            for shot in shots:
+                if shot.is_colliding(asteroid):
+                    pygame.sprite.Sprite.kill(asteroid)
+                    pygame.sprite.Sprite.kill(shot)
 
         for drawable in drawables:
             drawable.draw(screen) # Renders player model

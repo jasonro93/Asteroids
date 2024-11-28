@@ -7,6 +7,7 @@ from circleshape import CircleShape
 class Asteroid(CircleShape):
     def __init__(self, x, y, radius):
         super().__init__(x, y, radius)
+        print(f"Asteroid spawned at: ({self.position.x}, {self.position.y})")
     
     def draw(self, screen):
         pygame.draw.circle(
