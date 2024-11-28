@@ -13,6 +13,12 @@ def main():
 
     clock = pygame.time.Clock() # Assigns shorthand variable for Clock methods
     dt = 0 # 
+
+    updatable = pygame.sprite.Group()
+    drawable = pygame.sprite.Group()
+
+    Player.containers = (updatable, drawable)
+
     playerx = SCREEN_WIDTH / 2
     playery = SCREEN_HEIGHT / 2
     player = Player(playerx, playery)
@@ -23,9 +29,10 @@ def main():
                 return
         screen.fill((0, 0, 0)) # Sets screen background to black
 
-        player.update(dt) # Update player position based on last time
+        updatable.update(dt) # Update player position based on last time
 
-        player.draw(screen) # Renders player model
+        for drawables in drawable:
+            drawables.draw(screen) # Renders player model
         pygame.display.flip()
 
         dt = clock.tick(60) / 1000 # Saves time state
