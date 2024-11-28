@@ -32,7 +32,7 @@ def main():
     playerx = SCREEN_WIDTH / 2
     playery = SCREEN_HEIGHT / 2
     player = Player(playerx, playery)
-    shot = Shot(player.position.x, player.position.y, PLAYER_SHOOT_SPEED)
+    #shot = Shot(player.position.x, player.position.y, PLAYER_SHOOT_SPEED)
     asteroids_init = AsteroidField()
 
     while True: # Initiate infinite game loop
