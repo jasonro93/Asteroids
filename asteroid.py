@@ -13,6 +13,7 @@ class Asteroid(CircleShape):
             screen,
             "white",
             self.position,
+            self.radius,
             2
         )
 
